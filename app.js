@@ -78,80 +78,84 @@ function createBookInstance(bookId, progressMs = 0) {
   };
 }
 
-const state = {
-  now: 0,
-  lastFrameTime: null,
-  lastUiRenderAt: 0,
-  lastPurchased: null,
-  selectedShelfId: "intelligence",
-  shopHighlightUntil: 0,
-  bookshelfLevel: 7,
-  premiumUnlockCost: PREMIUM_UNLOCK_COST,
-  rentalDurationMs: RENTAL_DURATION_MS,
-  speedupMs: SPEEDUP_MS,
-  shelves: [
-    {
-      id: "intelligence",
-      label: "Intelligence",
-      baseLevel: 21,
-      currentLevel: 21,
-      slots: [
-        { permanentUnlocked: true, rentalEndsAt: 0 },
-        { permanentUnlocked: false, rentalEndsAt: 0 },
-        { permanentUnlocked: false, rentalEndsAt: 0 }
-      ],
-      queue: [createBookInstance("science_book_3", 15000)]
-    },
-    {
-      id: "charisma",
-      label: "Charisma",
-      baseLevel: 16,
-      currentLevel: 16,
-      slots: [
-        { permanentUnlocked: true, rentalEndsAt: 0 },
-        { permanentUnlocked: false, rentalEndsAt: 0 },
-        { permanentUnlocked: false, rentalEndsAt: 0 }
-      ],
-      queue: []
-    },
-    {
-      id: "vitality",
-      label: "Vitality",
-      baseLevel: 13,
-      currentLevel: 13,
-      slots: [
-        { permanentUnlocked: true, rentalEndsAt: 0 },
-        { permanentUnlocked: false, rentalEndsAt: 0 },
-        { permanentUnlocked: false, rentalEndsAt: 0 }
-      ],
-      queue: []
-    },
-    {
-      id: "stamina",
-      label: "Stamina",
-      baseLevel: 11,
-      currentLevel: 11,
-      slots: [
-        { permanentUnlocked: true, rentalEndsAt: 0 },
-        { permanentUnlocked: false, rentalEndsAt: 0 },
-        { permanentUnlocked: false, rentalEndsAt: 0 }
-      ],
-      queue: []
-    },
-    {
-      id: "resilience",
-      label: "Resilience",
-      baseLevel: 10,
-      currentLevel: 10,
-      slots: [
-        { permanentUnlocked: true, rentalEndsAt: 0 },
-        { permanentUnlocked: false, rentalEndsAt: 0 },
-        { permanentUnlocked: false, rentalEndsAt: 0 }
-      ],
-      queue: []
-    }
-  ]
-};
+function createInitialState() {
+  return {
+    now: 0,
+    lastFrameTime: null,
+    lastUiRenderAt: 0,
+    lastPurchased: null,
+    selectedShelfId: "intelligence",
+    shopHighlightUntil: 0,
+    bookshelfLevel: 7,
+    premiumUnlockCost: PREMIUM_UNLOCK_COST,
+    rentalDurationMs: RENTAL_DURATION_MS,
+    speedupMs: SPEEDUP_MS,
+    shelves: [
+      {
+        id: "intelligence",
+        label: "Intelligence",
+        baseLevel: 21,
+        currentLevel: 21,
+        slots: [
+          { permanentUnlocked: true, rentalEndsAt: 0 },
+          { permanentUnlocked: false, rentalEndsAt: 0 },
+          { permanentUnlocked: false, rentalEndsAt: 0 }
+        ],
+        queue: [createBookInstance("science_book_3", 15000)]
+      },
+      {
+        id: "charisma",
+        label: "Charisma",
+        baseLevel: 16,
+        currentLevel: 16,
+        slots: [
+          { permanentUnlocked: true, rentalEndsAt: 0 },
+          { permanentUnlocked: false, rentalEndsAt: 0 },
+          { permanentUnlocked: false, rentalEndsAt: 0 }
+        ],
+        queue: []
+      },
+      {
+        id: "vitality",
+        label: "Vitality",
+        baseLevel: 13,
+        currentLevel: 13,
+        slots: [
+          { permanentUnlocked: true, rentalEndsAt: 0 },
+          { permanentUnlocked: false, rentalEndsAt: 0 },
+          { permanentUnlocked: false, rentalEndsAt: 0 }
+        ],
+        queue: []
+      },
+      {
+        id: "stamina",
+        label: "Stamina",
+        baseLevel: 11,
+        currentLevel: 11,
+        slots: [
+          { permanentUnlocked: true, rentalEndsAt: 0 },
+          { permanentUnlocked: false, rentalEndsAt: 0 },
+          { permanentUnlocked: false, rentalEndsAt: 0 }
+        ],
+        queue: []
+      },
+      {
+        id: "resilience",
+        label: "Resilience",
+        baseLevel: 10,
+        currentLevel: 10,
+        slots: [
+          { permanentUnlocked: true, rentalEndsAt: 0 },
+          { permanentUnlocked: false, rentalEndsAt: 0 },
+          { permanentUnlocked: false, rentalEndsAt: 0 }
+        ],
+        queue: []
+      }
+    ]
+  };
+}
+
+const state = createInitialState();
 
 const elements = {
   focusShelf: document.querySelector("#focus-shelf"),
@@ -360,9 +364,7 @@ function rentSlot(shelfId, slotIndex) {
 }
 
 function resetAllStats() {
-  state.shelves.forEach((shelf) => {
-    shelf.currentLevel = shelf.baseLevel;
-  });
+  Object.assign(state, createInitialState());
   render();
 }
 
