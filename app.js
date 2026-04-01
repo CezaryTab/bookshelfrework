@@ -94,8 +94,8 @@ function createInitialState() {
       {
         id: "intelligence",
         label: "Intelligence",
-        baseLevel: 21,
-        currentLevel: 21,
+        baseLevel: 1,
+        currentLevel: 1,
         slots: [
           { permanentUnlocked: true, rentalEndsAt: 0 },
           { permanentUnlocked: false, rentalEndsAt: 0 },
@@ -106,8 +106,8 @@ function createInitialState() {
       {
         id: "charisma",
         label: "Charisma",
-        baseLevel: 16,
-        currentLevel: 16,
+        baseLevel: 1,
+        currentLevel: 1,
         slots: [
           { permanentUnlocked: true, rentalEndsAt: 0 },
           { permanentUnlocked: false, rentalEndsAt: 0 },
@@ -118,8 +118,8 @@ function createInitialState() {
       {
         id: "vitality",
         label: "Vitality",
-        baseLevel: 13,
-        currentLevel: 13,
+        baseLevel: 1,
+        currentLevel: 1,
         slots: [
           { permanentUnlocked: true, rentalEndsAt: 0 },
           { permanentUnlocked: false, rentalEndsAt: 0 },
@@ -130,8 +130,8 @@ function createInitialState() {
       {
         id: "stamina",
         label: "Stamina",
-        baseLevel: 11,
-        currentLevel: 11,
+        baseLevel: 1,
+        currentLevel: 1,
         slots: [
           { permanentUnlocked: true, rentalEndsAt: 0 },
           { permanentUnlocked: false, rentalEndsAt: 0 },
@@ -142,8 +142,8 @@ function createInitialState() {
       {
         id: "resilience",
         label: "Resilience",
-        baseLevel: 10,
-        currentLevel: 10,
+        baseLevel: 1,
+        currentLevel: 1,
         slots: [
           { permanentUnlocked: true, rentalEndsAt: 0 },
           { permanentUnlocked: false, rentalEndsAt: 0 },
