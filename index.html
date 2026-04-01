@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idle Life Bookshelf Simulator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="bookshelf-stage" aria-label="Bookshelf mockup">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <div class="phone-island" aria-hidden="true"></div>
+          <section class="main-area" aria-label="Idle Life bookshelf">
+            <header class="main-summary">
+              <p class="summary-title">
+                Bookshelf Level:
+                <strong id="bookshelf-level-label">7</strong>
+              </p>
+              <div class="summary-availability">
+                <span class="summary-label">Available Slots</span>
+                <div class="summary-chip" id="storage-chip">2</div>
+              </div>
+            </header>
+
+            <section class="focus-shelf-wrap">
+              <div id="focus-shelf" aria-live="polite"></div>
+            </section>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <aside class="support-panel" aria-label="Shelf controls and book shop">
+      <section class="support-section shop-card" id="shop-card" aria-label="Book shop">
+        <div class="support-heading">
+          <div>
+            <p class="support-kicker">Book Shop</p>
+            <h2>Buy Next Book</h2>
+          </div>
+          <div class="shop-capacity-chip" id="shop-capacity-chip">0 open spots</div>
+          </div>
+          <div class="shop-list" id="shop-list"></div>
+      </section>
+
+      <section class="support-section" aria-label="Shelf selector">
+        <div class="support-heading">
+          <div>
+            <p class="support-kicker">Shelf Selector</p>
+            <h2>Skills</h2>
+          </div>
+          <button class="reset-stats-button" id="reset-stats-button" type="button">Reset stats</button>
+        </div>
+        <div class="stats-list" id="stats-list"></div>
+      </section>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
